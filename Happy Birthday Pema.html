@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy Birthday Pema ✨</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tone.js for Sound Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <!-- Google Fonts: Playfair Display, Inter, and Caveat for handwritten notes -->
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        hand: ['Caveat', 'cursive'],
+                    },
+                    colors: {
+                        cream: '#FFFBF7',
+                        blush: '#FCE8EB',
+                        roseDust: '#E5989B',
+                        deepPlum: '#4A314D',
+                        sage: '#84A59D',
+                        goldGlow: '#F6BD60'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base & Atmospheric Background */
+        body {
+            background: radial-gradient(circle at 15% 15%, #FFF1F4 0%, #FFFBF7 45%, #F5F0FA 100%);
+            color: #4A314D;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+            transition: background 0.8s ease;
+        }
+
+        /* Subtle dreamy floating light orbs in background */
+        .ambient-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(65px);
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.55;
+            animation: drift 14s infinite alternate ease-in-out;
+        }
+
+        @keyframes drift {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(25px, -30px) scale(1.1); }
+        }
+
+        /* Realistic Candle Flame Animation */
+        @keyframes flicker {
+            0%, 100% { transform: scale(1) rotate(-1.5deg); opacity: 0.96; }
+            33% { transform: scale(1.06, 0.95) rotate(2deg); opacity: 1; }
+            66% { transform: scale(0.95, 1.05) rotate(-1deg); opacity: 0.92; }
+        }
+
+        .candle-flame {
+            transform-origin: bottom center;
+            animation: flicker 1.1s infinite ease-in-out;
+            transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+        }
+
+        .candle-flame.blown-out {
+            opacity: 0 !important;
+            transform: scale(0.1) translateY(-12px) skewX(20deg) !important;
+            animation: none;
+        }
+
+        /* Rising Smoke Wisp Animation */
+        @keyframes riseSmoke {
+            0% { opacity: 0.85; transform: translateY(0) scale(0.6) rotate(0deg); }
+            50% { opacity: 0.5; transform: translateY(-18px) scale(1.1) rotate(12deg); }
+            100% { opacity: 0; transform: translateY(-38px) scale(1.5) rotate(-10deg); }
+        }
+
+        .smoke-puff {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .smoke-puff.active {
+            animation: riseSmoke 1.3s ease-out forwards;
+        }
+
+        /* Gentle Float for Cake */
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+        .float-cake {
+            animation: gentleFloat 4.2s ease-in-out infinite;
+        }
+
+        /* Countdown Number Pop Animation */
+        @keyframes countPop {
+            0% { transform: scale(0.4); opacity: 0; }
+            45% { transform: scale(1.25); opacity: 1; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+        .animate-count {
+            animation: countPop 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        /* Dynamic Story Card Background Patterns */
+        .bg-theme-lab {
+            background-color: #FFFFFF;
+            background-image: 
+                radial-gradient(circle at 92% 12%, rgba(132, 165, 157, 0.16) 0%, transparent 45%),
+                radial-gradient(#84A59D 0.65px, transparent 0.65px);
+            background-size: 100% 100%, 18px 18px;
+        }
+
+        .bg-theme-hobby {
+            background-color: #FFFFFF;
+            background-image: 
+                radial-gradient(circle at 90% 15%, rgba(229, 152, 155, 0.2) 0%, transparent 50%),
+                repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(229, 152, 155, 0.12) 28px);
+        }
+
+        .bg-theme-misc {
+            background-color: #FFFFFF;
+            background-image: 
+                radial-gradient(circle at 88% 15%, rgba(246, 189, 96, 0.22) 0%, transparent 50%),
+                radial-gradient(circle at 12% 88%, rgba(216, 180, 254, 0.18) 0%, transparent 45%);
+        }
+
+        /* Custom Scrollbar Hide */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center selection:bg-roseDust/30 relative">
+
+    <!-- Soft Atmospheric Background Orbs -->
+    <div class="ambient-orb w-72 h-72 bg-rose-200/60 top-[-40px] left-[-60px]"></div>
+    <div class="ambient-orb w-80 h-80 bg-amber-100/70 top-[35%] right-[-90px]" style="animation-delay: -5s;"></div>
+    <div class="ambient-orb w-72 h-72 bg-purple-200/50 bottom-[5%] left-[-50px]" style="animation-delay: -9s;"></div>
+
+    <!-- Falling Stars Canvas Overlay -->
+    <canvas id="starCanvas" class="fixed inset-0 pointer-events-none z-40"></canvas>
+
+    <!-- ==========================================
+         SECTION 1: HERO & INTERACTIVE CAKE (1-2-3 BLOW)
+         ========================================== -->
+    <section id="heroSection" class="relative z-10 w-full max-w-md min-h-[92vh] flex flex-col items-center justify-between px-6 pt-12 pb-8 text-center select-none cursor-pointer">
+        
+        <!-- Birthday Greeting Header with Pema's Name -->
+        <div class="space-y-1.5 mt-2">
+            <p class="font-hand text-2xl sm:text-3xl text-rose-400 tracking-wide">A little wish for you...</p>
+            <h1 class="font-serif text-4xl sm:text-5xl font-bold text-deepPlum leading-tight tracking-tight">
+                Happy Birthday
+            </h1>
+            <div class="inline-block relative pt-1">
+                <span class="font-serif italic text-3xl sm:text-4xl font-bold bg-gradient-to-r from-rose-500 via-pink-500 to-amber-500 bg-clip-text text-transparent">
+                    Pema ✨
+                </span>
+                <svg class="w-full h-2.5 text-rose-300/80 -mt-1" viewBox="0 0 120 10" fill="none">
+                    <path d="M2 7C35 2 85 2 118 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <p id="instructionText" class="text-sm text-deepPlum/70 pt-3 font-medium transition-all duration-300">
+                Tap the screen 3 times to blow out your candles 🌬️
+            </p>
+        </div>
+
+        <!-- Interactive Cake Container -->
+        <div class="relative w-full flex flex-col items-center justify-center my-4">
+            
+            <!-- Big Animated Countdown Overlay (1, 2, 3!) -->
+            <div id="countdownOverlay" class="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
+                <span id="countdownNumber" class="font-serif text-8xl font-bold text-rose-500 drop-shadow-[0_6px_20px_rgba(244,63,94,0.3)] opacity-0">1</span>
+            </div>
+
+            <!-- Upgraded Bakery-Style Cake Illustration (SVG) -->
+            <div id="cakeWrapper" class="relative w-72 h-72 sm:w-80 sm:h-80 float-cake flex items-center justify-center">
+                <svg viewBox="0 0 320 320" class="w-full h-full drop-shadow-[0_18px_28px_rgba(74,49,77,0.14)]" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <!-- Soft Glow Behind Flames -->
+                        <radialGradient id="flameAura" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#FDE68A" stop-opacity="0.75"/>
+                            <stop offset="60%" stop-color="#FDBA74" stop-opacity="0.25"/>
+                            <stop offset="100%" stop-color="#FDBA74" stop-opacity="0"/>
+                        </radialGradient>
+                        <!-- Cake Sponge & Cream Gradients -->
+                        <linearGradient id="bottomTier" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0%" stop-color="#FAD2E1"/>
+                            <stop offset="50%" stop-color="#FFE5EC"/>
+                            <stop offset="100%" stop-color="#F8AD9D"/>
+                        </linearGradient>
+                        <linearGradient id="topTier" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0%" stop-color="#FFF0F3"/>
+                            <stop offset="50%" stop-color="#FFFFFF"/>
+                            <stop offset="100%" stop-color="#FCE1E4"/>
+                        </linearGradient>
+                        <linearGradient id="icingDrip" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#FF8FA3"/>
+                            <stop offset="100%" stop-color="#FFCCD5"/>
+                        </linearGradient>
+                    </defs>
+
+                    <!-- Warm Candlelight Aura -->
+                    <ellipse id="warmAura" cx="160" cy="82" rx="95" ry="45" fill="url(#flameAura)" class="transition-opacity duration-700"/>
+
+                    <!-- Pedestal Cake Stand -->
+                    <path d="M138 262 L132 292 L188 292 L182 262 Z" fill="#F1E4F3"/>
+                    <ellipse cx="160" cy="293" rx="54" ry="9" fill="#E5D4ED"/>
+                    <ellipse cx="160" cy="262" rx="124" ry="17" fill="#FFFFFF" stroke="#E8D8EE" stroke-width="2"/>
+                    <ellipse cx="160" cy="259" rx="116" ry="13" fill="#FDF8FF"/>
+
+                    <!-- Bottom Tier Cake -->
+                    <path d="M62 192 H258 V248 C258 258 214 265 160 265 C106 265 62 258 62 248 V192 Z" fill="url(#bottomTier)"/>
+                    <!-- Bottom Tier Ribbon Trim -->
+                    <path d="M62 241 C106 250 214 250 258 241 V248 C258 258 214 265 160 265 C106 265 62 258 62 248 V241 Z" fill="#F4978E" opacity="0.65"/>
+                    <ellipse cx="160" cy="192" rx="98" ry="15" fill="#FFF5F7"/>
+
+                    <!-- Berry Drip Glaze on Bottom Tier -->
+                    <path d="M62 192 C62 206 72 218 79 218 C86 218 88 202 96 202 C104 202 106 225 115 225 C124 225 127 204 136 204 C145 204 148 222 158 222 C168 222 171 203 180 203 C189 203 192 226 201 226 C210 226 213 204 222 204 C231 204 234 218 242 218 C250 218 258 205 258 192 Z" fill="url(#icingDrip)"/>
+
+                    <!-- Top Tier Cake -->
+                    <path d="M92 134 H228 V186 C228 194 198 200 160 200 C122 200 92 194 92 186 V134 Z" fill="url(#topTier)"/>
+                    <ellipse cx="160" cy="134" rx="68" ry="12" fill="#FFFDFD" stroke="#F8D7DF" stroke-width="1.5"/>
+
+                    <!-- Cream Frosting Piping Swirls along Top Rim -->
+                    <g fill="#FFE5EC" stroke="#F4ACB7" stroke-width="1">
+                        <circle cx="100" cy="137" r="6.5"/>
+                        <circle cx="115" cy="141" r="6.5"/>
+                        <circle cx="131" cy="143" r="6.5"/>
+                        <circle cx="147" cy="144" r="6.5"/>
+                        <circle cx="163" cy="144" r="6.5"/>
+                        <circle cx="179" cy="143" r="6.5"/>
+                        <circle cx="195" cy="141" r="6.5"/>
+                        <circle cx="211" cy="139" r="6.5"/>
+                        <circle cx="222" cy="136" r="6"/>
+                    </g>
+
+                    <!-- Cute Strawberries & Pearls Decoration -->
+                    <!-- Left Strawberry -->
+                    <path d="M108 188 C103 188 102 196 108 201 C114 196 113 188 108 188 Z" fill="#FB6F92"/>
+                    <path d="M104 188 L108 191 L112 188" stroke="#84A59D" stroke-width="2" stroke-linecap="round"/>
+                    <!-- Right Strawberry -->
+                    <path d="M212 188 C207 188 206 196 212 201 C218 196 217 188 212 188 Z" fill="#FB6F92"/>
+                    <path d="M208 188 L212 191 L216 188" stroke="#84A59D" stroke-width="2" stroke-linecap="round"/>
+
+                    <!-- Tiny Gold & Pastel Sprinkles -->
+                    <circle cx="130" cy="166" r="2.2" fill="#F6BD60"/>
+                    <circle cx="160" cy="172" r="2.5" fill="#FF8FA3"/>
+                    <circle cx="190" cy="164" r="2.2" fill="#84A59D"/>
+                    <rect x="142" y="158" width="5" height="2" rx="1" transform="rotate(25 142 158)" fill="#C77DFF"/>
+                    <rect x="174" y="157" width="5" height="2" rx="1" transform="rotate(-20 174 157)" fill="#F6BD60"/>
+
+                    <!-- ==========================================
+                         3 TALL STRIPED CANDLES + WICKS + FLAMES
+                         ========================================== -->
+                    
+                    <!-- CANDLE 1 (Left - Pastel Rose) -->
+                    <g id="candleGroup1">
+                        <!-- Candle Holder Cup -->
+                        <ellipse cx="122" cy="132" rx="7" ry="2.5" fill="#F6BD60"/>
+                        <!-- Candle Body -->
+                        <rect x="117" y="92" width="10" height="40" rx="3" fill="#FF8FA3"/>
+                        <!-- Diagonal White Stripes -->
+                        <path d="M117 102 L127 97 M117 113 L127 108 M117 124 L127 119" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+                        <!-- Wick -->
+                        <path d="M122 92 V86" stroke="#4A314D" stroke-width="1.8" stroke-linecap="round"/>
+                        <!-- Layered Flame -->
+                        <g id="flame1" class="candle-flame">
+                            <path d="M122 62 C129 72 130 81 122 86 C114 81 115 72 122 62 Z" fill="#FF9F1C"/>
+                            <path d="M122 68 C126 74 126 80 122 84 C118 80 118 74 122 68 Z" fill="#FFF3B0"/>
+                        </g>
+                        <!-- Smoke Puff -->
+                        <path id="smoke1" class="smoke-puff" d="M122 84 C117 76 127 68 121 58 C116 50 125 42 122 34" stroke="#A8A29E" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                    </g>
+
+                    <!-- CANDLE 2 (Center - Slightly Taller Gold/Lavender) -->
+                    <g id="candleGroup2">
+                        <!-- Candle Holder Cup -->
+                        <ellipse cx="160" cy="130" rx="7.5" ry="2.5" fill="#F6BD60"/>
+                        <!-- Candle Body -->
+                        <rect x="154.5" y="84" width="11" height="46" rx="3" fill="#C77DFF"/>
+                        <!-- Diagonal White Stripes -->
+                        <path d="M154.5 95 L165.5 90 M154.5 107 L165.5 102 M154.5 119 L165.5 114" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+                        <!-- Wick -->
+                        <path d="M160 84 V78" stroke="#4A314D" stroke-width="1.8" stroke-linecap="round"/>
+                        <!-- Layered Flame -->
+                        <g id="flame2" class="candle-flame" style="animation-delay: 0.25s;">
+                            <path d="M160 52 C168 63 169 73 160 78 C151 73 152 63 160 52 Z" fill="#FF9F1C"/>
+                            <path d="M160 59 C164.5 66 164.5 72 160 76 C155.5 72 155.5 66 160 59 Z" fill="#FFF3B0"/>
+                        </g>
+                        <!-- Smoke Puff -->
+                        <path id="smoke2" class="smoke-puff" d="M160 76 C155 68 165 60 159 50 C154 42 163 34 160 26" stroke="#A8A29E" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                    </g>
+
+                    <!-- CANDLE 3 (Right - Mint Sage) -->
+                    <g id="candleGroup3">
+                        <!-- Candle Holder Cup -->
+                        <ellipse cx="198" cy="132" rx="7" ry="2.5" fill="#F6BD60"/>
+                        <!-- Candle Body -->
+                        <rect x="193" y="92" width="10" height="40" rx="3" fill="#84A59D"/>
+                        <!-- Diagonal White Stripes -->
+                        <path d="M193 102 L203 97 M193 113 L203 108 M193 124 L203 119" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+                        <!-- Wick -->
+                        <path d="M198 92 V86" stroke="#4A314D" stroke-width="1.8" stroke-linecap="round"/>
+                        <!-- Layered Flame -->
+                        <g id="flame3" class="candle-flame" style="animation-delay: 0.45s;">
+                            <path d="M198 62 C205 72 206 81 198 86 C190 81 191 72 198 62 Z" fill="#FF9F1C"/>
+                            <path d="M198 68 C202 74 202 80 198 84 C194 80 194 74 198 68 Z" fill="#FFF3B0"/>
+                        </g>
+                        <!-- Smoke Puff -->
+                        <path id="smoke3" class="smoke-puff" d="M198 84 C193 76 203 68 197 58 C192 50 201 42 198 34" stroke="#A8A29E" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                    </g>
+                </svg>
+            </div>
+
+            <!-- Interactive Tap Pill -->
+            <button id="blowBtn" type="button" class="mt-1 px-6 py-3 rounded-full bg-white/95 shadow-md border border-rose-200/80 text-deepPlum font-medium text-sm flex items-center gap-2.5 active:scale-95 transition-all hover:shadow-lg">
+                <span id="tapDot" class="w-2.5 h-2.5 rounded-full bg-rose-400 animate-ping"></span>
+                <span id="blowBtnText">Tap anywhere to blow (0/3)</span>
+            </button>
+        </div>
+
+        <!-- Scroll Down Prompt -->
+        <a href="#chaptersSection" id="scrollHint" class="flex flex-col items-center gap-1 text-deepPlum/55 hover:text-deepPlum transition-colors pt-1">
+            <span class="text-xs font-medium tracking-wide">Scroll down for your notes</span>
+            <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </a>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: 3 INTERACTIVE OPTION TILES & STORY READER
+         ========================================== -->
+    <main id="chaptersSection" class="relative z-10 w-full max-w-md px-5 pt-4 pb-24 space-y-6">
+        
+        <!-- Section Heading -->
+        <div class="text-center space-y-1">
+            <h2 class="font-serif text-2xl font-bold text-deepPlum">Little Chapters of You</h2>
+            <p class="text-xs text-deepPlum/60">Tap any card below to open your note</p>
+        </div>
+
+        <!-- 3 Aesthetic Option Tiles with Custom SVG Illustrations -->
+        <div class="grid grid-cols-3 gap-3" role="tablist">
+            
+            <!-- Tile 1: Lab -->
+            <button onclick="selectTile('lab')" id="tile-lab" class="tile-btn group flex flex-col items-center justify-center p-3.5 rounded-2xl bg-white border-2 border-sage shadow-md transition-all duration-300 active:scale-95">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform">
+                    <!-- Custom Flask & Sparkle Illustration -->
+                    <svg class="w-8 h-8" viewBox="0 0 40 40" fill="none">
+                        <path d="M15 8H25M17 8V15L10 28C9.2 29.5 10.3 31 12 31H28C29.7 31 30.8 29.5 30 28L23 15V8" stroke="#52796F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12.5 24H27.5L29.5 28C30 29 29.2 30.5 28 30.5H12C10.8 30.5 10 29 10.5 28L12.5 24Z" fill="#84A59D" opacity="0.65"/>
+                        <circle cx="18" cy="27" r="1.3" fill="#FFFFFF"/>
+                        <circle cx="22.5" cy="25.5" r="1.1" fill="#FFFFFF"/>
+                        <path d="M31 10L32 12L34 13L32 14L31 16L30 14L28 13L30 12L31 10Z" fill="#F6BD60"/>
+                    </svg>
+                </div>
+                <span class="font-semibold text-sm text-deepPlum">Lab</span>
+            </button>
+
+            <!-- Tile 2: Hobby -->
+            <button onclick="selectTile('hobby')" id="tile-hobby" class="tile-btn group flex flex-col items-center justify-center p-3.5 rounded-2xl bg-white/75 border border-rose-100 shadow-sm transition-all duration-300 active:scale-95">
+                <div class="w-12 h-12 rounded-2xl bg-rose-50 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform">
+                    <!-- Custom Open Book + Music Note Illustration -->
+                    <svg class="w-8 h-8" viewBox="0 0 40 40" fill="none">
+                        <path d="M20 14C17 11.5 11.5 11.5 8 13V28C11.5 26.5 17 26.5 20 29C23 26.5 28.5 26.5 32 28V13C28.5 11.5 23 11.5 20 14Z" fill="#FFE5EC" stroke="#E5989B" stroke-width="2" stroke-linejoin="round"/>
+                        <path d="M20 14V29" stroke="#E5989B" stroke-width="1.8" stroke-linecap="round"/>
+                        <!-- Floating Music Note -->
+                        <path d="M27 11V6L32 5V10" stroke="#C77DFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="25.5" cy="11" r="1.8" fill="#C77DFF"/>
+                        <circle cx="30.5" cy="10" r="1.8" fill="#C77DFF"/>
+                    </svg>
+                </div>
+                <span class="font-semibold text-sm text-deepPlum">Hobby</span>
+            </button>
+
+            <!-- Tile 3: Miscellaneous -->
+            <button onclick="selectTile('misc')" id="tile-misc" class="tile-btn group flex flex-col items-center justify-center p-3.5 rounded-2xl bg-white/75 border border-amber-100 shadow-sm transition-all duration-300 active:scale-95">
+                <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform">
+                    <!-- Custom Notebook + Star/Heart Illustration -->
+                    <svg class="w-8 h-8" viewBox="0 0 40 40" fill="none">
+                        <rect x="10" y="8" width="20" height="24" rx="3.5" fill="#FFF3B0" stroke="#E09F3E" stroke-width="2"/>
+                        <path d="M15 15H25M15 20H22" stroke="#E09F3E" stroke-width="1.8" stroke-linecap="round"/>
+                        <path d="M25 23.5C25 22.3 26.5 21.8 27.3 22.7C28.1 21.8 29.6 22.3 29.6 23.5C29.6 25.1 27.3 26.6 27.3 26.6C27.3 26.6 25 25.1 25 23.5Z" fill="#FB6F92"/>
+                    </svg>
+                </div>
+                <span class="font-semibold text-sm text-deepPlum">Misc</span>
+            </button>
+        </div>
+
+        <!-- ==========================================
+             DYNAMIC STORY DISPLAY CARD (WITH THEMED BACKGROUND ART)
+             ========================================== -->
+        <div id="storyCard" class="relative overflow-hidden bg-theme-lab rounded-3xl p-6 shadow-[0_12px_35px_rgba(74,49,77,0.08)] border border-white transition-all duration-500">
+            
+            <!-- Decorative Corner Watermark Art (Changes dynamically with tile) -->
+            <div id="cardWatermark" class="absolute -bottom-4 -right-4 w-36 h-36 opacity-20 pointer-events-none transition-all duration-500">
+                <!-- Populated by JS -->
+            </div>
+
+            <!-- Card Header -->
+            <div class="relative z-10 flex items-center gap-3 pb-4 mb-4 border-b border-deepPlum/10">
+                <span id="cardIcon" class="w-10 h-10 rounded-2xl bg-emerald-50 flex items-center justify-center text-xl shadow-inner">🧪</span>
+                <div>
+                    <h3 id="cardTitle" class="font-serif text-xl font-bold text-deepPlum">Lab Partner Chronicles</h3>
+                    <p id="cardSubtitle" class="text-xs text-deepPlum/55 font-medium">Since 1st Year</p>
+                </div>
+            </div>
+
+            <!-- Reading View (Clean & Simple) -->
+            <div id="readView" class="relative z-10 space-y-3">
+                <p id="cardBody" class="text-[15px] leading-relaxed text-deepPlum/90 whitespace-pre-line font-normal"></p>
+            </div>
+        </div>
+
+        <!-- Subtle Footer -->
+        <footer class="text-center pt-4 space-y-1">
+            <p class="font-hand text-xl text-rose-400">Wishing you the sweetest year ahead, Pema 🌷</p>
+        </footer>
+    </main>
+
+    <!-- Subtle Floating Audio Toggle (appears once music starts) -->
+    <button id="musicToggleBtn" onclick="toggleBackgroundMusic()" type="button" aria-label="Toggle Music" class="fixed bottom-5 right-5 z-30 hidden w-11 h-11 rounded-full bg-white/90 backdrop-blur-md shadow-md border border-rose-200/80 items-center justify-center text-deepPlum active:scale-90 transition-all">
+        <span id="musicToggleIcon" class="text-lg">🎶</span>
+    </button>
+
+    <!-- ==========================================
+         CELEBRATION POPUP MODAL (AFTER 3 BLOWS)
+         ========================================== -->
+    <div id="birthdayModal" class="fixed inset-0 z-50 hidden items-center justify-center p-6 bg-deepPlum/45 backdrop-blur-sm transition-opacity duration-300">
+        <div id="modalContent" class="relative w-full max-w-sm bg-gradient-to-b from-white via-[#FFF9FB] to-[#FFF4F7] rounded-3xl p-7 text-center shadow-2xl border border-rose-100 transform scale-90 opacity-0 transition-all duration-300">
+            
+            <!-- Pema's Refined Watercolor Portrait Illustration -->
+            <div class="relative w-36 h-36 mx-auto mb-4">
+                <div class="w-full h-full rounded-full p-1.5 bg-gradient-to-tr from-rose-300 via-amber-200 to-indigo-300 shadow-lg">
+                    <div class="w-full h-full rounded-full bg-[#FFFDF9] border-2 border-white overflow-hidden relative flex items-center justify-center">
+                        <svg viewBox="0 0 220 220" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <radialGradient id="paperWarmth" cx="50%" cy="45%" r="55%">
+                                    <stop offset="0%" stop-color="#FFFDF9"/>
+                                    <stop offset="100%" stop-color="#FDF6EC"/>
+                                </radialGradient>
+                                <radialGradient id="cheekBlush" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#F28482" stop-opacity="0.58"/>
+                                    <stop offset="70%" stop-color="#F6BD60" stop-opacity="0.18"/>
+                                    <stop offset="100%" stop-color="#F28482" stop-opacity="0"/>
+                                </radialGradient>
+                                <linearGradient id="navyShirtGrad" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0%" stop-color="#3B4D6B"/>
+                                    <stop offset="55%" stop-color="#2E3D59"/>
+                                    <stop offset="100%" stop-color="#233047"/>
+                                </linearGradient>
+                                <linearGradient id="hairGrad" x1="0" y1="0" x2="0.8" y2="1">
+                                    <stop offset="0%" stop-color="#3E312D"/>
+                                    <stop offset="60%" stop-color="#2D221F"/>
+                                    <stop offset="100%" stop-color="#4A3B36"/>
+                                </linearGradient>
+                            </defs>
+
+                            <!-- Warm Paper Background -->
+                            <rect width="220" height="220" fill="url(#paperWarmth)"/>
+
+                            <!-- Hand-drawn Pastel Stars Around Her -->
+                            <path d="M36 44L39.5 52L48 53L41.5 58.5L43.5 67L36 62.5L28.5 67L30.5 58.5L24 53L32.5 52L36 44Z" stroke="#F4B956" stroke-width="2.1" stroke-linejoin="round"/>
+                            <path d="M180 46L182.2 51.5L188 52.2L183.5 56L184.8 61.5L180 58.5L175.2 61.5L176.5 56L172 52.2L177.8 51.5L180 46Z" stroke="#F4B956" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M178 136L181.5 144L190 145L183.5 150.5L185.5 159L178 154.5L170.5 159L172.5 150.5L166 145L174.5 144L178 136Z" stroke="#76A5C4" stroke-width="2.1" stroke-linejoin="round"/>
+                            <!-- Four-point Sparkle Stars -->
+                            <path d="M52 82C53 86 55 88 59 89C55 90 53 92 52 96C51 92 49 90 45 89C49 88 51 86 52 82Z" stroke="#EE8E8E" stroke-width="1.9" stroke-linejoin="round"/>
+                            <path d="M168 92C169 96 171 98 175 99C171 100 169 102 168 106C167 102 165 100 161 99C165 98 167 96 168 92Z" stroke="#EE8E8E" stroke-width="1.9" stroke-linejoin="round"/>
+                            <path d="M38 124C39 128 41 130 45 131C41 132 39 134 38 138C37 134 35 132 31 131C35 130 37 128 38 124Z" stroke="#76A5C4" stroke-width="1.9" stroke-linejoin="round"/>
+                            <path d="M162 114C162.7 116.5 164 117.8 166.5 118.5C164 119.2 162.7 120.5 162 123C161.3 120.5 160 119.2 157.5 118.5C160 117.8 161.3 116.5 162 114Z" fill="#F4B956"/>
+                            <path d="M34 146C34.7 148.5 36 149.8 38.5 150.5C36 151.2 34.7 152.5 34 155C33.3 152.5 32 151.2 29.5 150.5C32 149.8 33.3 148.5 34 146Z" fill="#F4B956"/>
+
+                            <!-- Flowing Low Ponytail & Scrunchie Tie -->
+                            <path d="M128 104C149 108 162 126 157 148C154 139 146 135 140 135C146 144 144 156 137 161C134 147 128 131 121 118Z" fill="url(#hairGrad)"/>
+                            <path d="M134 111C147 117 153 129 151 141" stroke="#5A4842" stroke-width="1.4" stroke-linecap="round"/>
+                            <ellipse cx="127" cy="110" rx="6" ry="4.5" transform="rotate(-28 127 110)" fill="#9C5738" stroke="#7A4128" stroke-width="1"/>
+
+                            <!-- Neck & Soft Shadow -->
+                            <path d="M98 112V135H120V112" fill="#FAD7BE"/>
+                            <path d="M98 112C104 119 114 119 120 112V120C113 124 104 124 98 120V112Z" fill="#E8B99B" opacity="0.6"/>
+                            <!-- White Inner Crewneck Tee -->
+                            <path d="M91 132L109 145L127 132L122 148H96L91 132Z" fill="#FFFFFF"/>
+
+                            <!-- Navy Starry Collared Shirt -->
+                            <path d="M58 164L77 134L95 129L109 145L123 129L141 134L160 164L144 173L141 220H77L74 173L58 164Z" fill="url(#navyShirtGrad)" stroke="#233047" stroke-width="1.4" stroke-linejoin="round"/>
+                            <!-- Open Camp Collar -->
+                            <path d="M95 129L109 145L98 153L87 136Z" fill="#3D5070" stroke="#233047" stroke-width="1.3" stroke-linejoin="round"/>
+                            <path d="M123 129L109 145L120 153L131 136Z" fill="#3D5070" stroke="#233047" stroke-width="1.3" stroke-linejoin="round"/>
+                            <!-- Center Placket & Buttons -->
+                            <path d="M109 145V220" stroke="#233047" stroke-width="1.5"/>
+                            <circle cx="109" cy="161" r="2.2" fill="#F4E6D4"/>
+                            <circle cx="109" cy="182" r="2.2" fill="#F4E6D4"/>
+                            <circle cx="109" cy="203" r="2.2" fill="#F4E6D4"/>
+                            <!-- Left Chest Pocket -->
+                            <path d="M118 167H133V182L125.5 186L118 182V167Z" stroke="#536B94" stroke-width="1.3" stroke-linejoin="round"/>
+
+                            <!-- Scattered Tiny Stars on Navy Shirt -->
+                            <path d="M90 164L91 166.5L93.5 167L91.5 168.5L92 171L90 169.5L88 171L88.5 168.5L86.5 167L89 166.5L90 164Z" fill="#FFF2D6"/>
+                            <path d="M125 156L126 158.5L128.5 159L126.5 160.5L127 163L125 161.5L123 163L123.5 160.5L121.5 159L124 158.5L125 156Z" fill="#FFF2D6"/>
+                            <path d="M93 195L94 197.5L96.5 198L94.5 199.5L95 202L93 200.5L91 202L91.5 199.5L89.5 198L92 197.5L93 195Z" fill="#FFF2D6"/>
+                            <path d="M124 198L125 200.5L127.5 201L125.5 202.5L126 205L124 203.5L122 205L122.5 202.5L120.5 201L123 200.5L124 198Z" fill="#FFF2D6"/>
+                            <circle cx="71" cy="162" r="1.4" fill="#FFF2D6"/>
+                            <circle cx="147" cy="163" r="1.4" fill="#FFF2D6"/>
+
+                            <!-- Arms -->
+                            <path d="M65 168L57 220H72L76 173Z" fill="#FADCC8" stroke="#DDA88C" stroke-width="1.1"/>
+                            <path d="M153 168L161 220H146L142 173Z" fill="#FADCC8" stroke="#DDA88C" stroke-width="1.1"/>
+
+                            <!-- Head Tilt & Soft Skin Shading -->
+                            <ellipse cx="109" cy="83" rx="31" ry="33" transform="rotate(-7 109 83)" fill="#FDE3D0" stroke="#DFAC91" stroke-width="1.2"/>
+
+                            <!-- Watercolor Rosy Cheeks -->
+                            <ellipse cx="90" cy="92" rx="10" ry="6.5" transform="rotate(-7 90 92)" fill="url(#cheekBlush)"/>
+                            <ellipse cx="126" cy="88" rx="10" ry="6.5" transform="rotate(-7 126 88)" fill="url(#cheekBlush)"/>
+
+                            <!-- Ear & Tiny Pearl Stud -->
+                            <path d="M138 81C143 80 146 85 144 90C142 94 138 94 136 92" fill="#FAD7BE" stroke="#DFAC91" stroke-width="1.2"/>
+                            <circle cx="139" cy="90" r="1.7" fill="#FFFFFF" stroke="#E2C6B5" stroke-width="0.6"/>
+
+                            <!-- Hair Crown, Natural Parting & Soft Strands -->
+                            <path d="M78 82C75 54 92 40 112 41C133 42 145 60 140 84C138 69 130 56 112 51C101 56 85 65 78 82Z" fill="url(#hairGrad)"/>
+                            <!-- Hair Parting Highlight -->
+                            <path d="M112 42L111 51" stroke="#7A655E" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M90 54C96 49 104 47 110 47" stroke="#5E4C46" stroke-width="1.3" stroke-linecap="round"/>
+                            <!-- Wispy Side Strand -->
+                            <path d="M138 89C141 95 140 101 136 105" stroke="#3E312D" stroke-width="1.4" stroke-linecap="round"/>
+
+                            <!-- Eyebrows & Happy Curved Closed Eyes -->
+                            <path d="M88 72C91 70 95 70 98 71" stroke="#5A4640" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M114 70C117 69 121 69 124 71" stroke="#5A4640" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M89 81C91.5 77.5 96.5 77.5 99 81" stroke="#332521" stroke-width="2.2" stroke-linecap="round"/>
+                            <path d="M114 79C116.5 75.5 121.5 75.5 124 79" stroke="#332521" stroke-width="2.2" stroke-linecap="round"/>
+
+                            <!-- Delicate Nose & Sweet Closed Smile -->
+                            <path d="M105 85C104 87.5 105.5 89 107.5 89" stroke="#C88770" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M101 96C105 99.5 111 99 114 95" stroke="#B56558" stroke-width="2" stroke-linecap="round"/>
+
+                            <!-- Thin Wire-Rim Round Glasses -->
+                            <circle cx="93" cy="82" r="12.5" stroke="#8C7B75" stroke-width="1.35" fill="#FFFFFF" fill-opacity="0.12"/>
+                            <circle cx="120" cy="80" r="12.5" stroke="#8C7B75" stroke-width="1.35" fill="#FFFFFF" fill-opacity="0.12"/>
+                            <!-- Nose Bridge & Temple Arm -->
+                            <path d="M105.5 81C106.5 80 107.5 80 108.5 81" stroke="#8C7B75" stroke-width="1.35" stroke-linecap="round"/>
+                            <path d="M132.5 80L140 82" stroke="#8C7B75" stroke-width="1.3" stroke-linecap="round"/>
+                            <!-- Subtle Glass Lens Glint -->
+                            <path d="M86 76L89 73" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round" opacity="0.8"/>
+                            <path d="M113 74L116 71" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round" opacity="0.8"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="font-serif text-3xl font-bold text-deepPlum leading-tight">
+                Happy Birthday, Pema!
+            </h2>
+            
+            <p class="text-sm text-deepPlum/75 mt-3 leading-relaxed">
+                You blew out all the candles! May your year be filled with cozy books, your favorite songs, great dramas, and endless happiness.
+            </p>
+
+            <div class="mt-6">
+                <button onclick="closeModalAndScroll()" type="button" class="w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-rose-400 via-pink-500 to-amber-400 text-white font-semibold text-sm shadow-lg shadow-rose-200/80 active:scale-95 transition-all">
+                    Yay ! Something Special Here ✨️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         JAVASCRIPT LOGIC (AIR BLOW SOUND, BIRTHDAY MUSIC BOX, STARS, TILES)
+         ========================================== -->
+    <script>
+        // ------------------------------------------
+        // 1. REALISTIC BLOWING AIR + SOFT PIANO ARRANGEMENT
+        // ------------------------------------------
+        let audioReady = false;
+        let chimeSynth = null;
+        let pianoSynth = null;
+        let birthdayLoopTimer = null;
+        let isMusicMuted = false;
+
+        async function initAudio() {
+            if (audioReady) return;
+            try {
+                await Tone.start();
+                chimeSynth = new Tone.PolySynth(Tone.Synth, {
+                    oscillator: { type: "sine" },
+                    envelope: { attack: 0.02, decay: 0.25, sustain: 0.05, release: 0.6 }
+                }).toDestination();
+                chimeSynth.volume.value = -8;
+
+                // Warm, expressive felt-piano style synth matching your uploaded piano piece
+                const reverb = new Tone.Reverb({ decay: 3.4, wet: 0.42 }).toDestination();
+                const filter = new Tone.Filter({ type: "lowpass", frequency: 1900 }).connect(reverb);
+
+                pianoSynth = new Tone.PolySynth(Tone.Synth, {
+                    oscillator: { type: "triangle" },
+                    envelope: { attack: 0.025, decay: 0.85, sustain: 0.22, release: 1.8 }
+                }).connect(filter);
+                pianoSynth.volume.value = -10;
+
+                audioReady = true;
+            } catch (e) {
+                console.warn("Audio initialization skipped:", e);
+            }
+        }
+
+        // Synthesize a realistic soft "whoosh" of air blowing out a candle
+        function playBlowAirSound(intensity = 1) {
+            if (!audioReady) return;
+            try {
+                const noise = new Tone.Noise("pink");
+                const filter = new Tone.Filter({
+                    type: "bandpass",
+                    frequency: 420 * intensity,
+                    Q: 1.4
+                });
+                const env = new Tone.AmplitudeEnvelope({
+                    attack: 0.06,
+                    decay: 0.28,
+                    sustain: 0.08,
+                    release: 0.22
+                });
+
+                noise.connect(filter);
+                filter.connect(env);
+                env.toDestination();
+                noise.volume.value = -4;
+
+                const now = Tone.now();
+                noise.start(now);
+                env.triggerAttackRelease(0.32, now);
+                filter.frequency.exponentialRampToValueAtTime(190, now + 0.35);
+
+                setTimeout(() => {
+                    noise.stop();
+                    noise.dispose();
+                    filter.dispose();
+                    env.dispose();
+                }, 650);
+            } catch (e) {}
+        }
+
+        function playCountNote(step) {
+            if (!audioReady || !chimeSynth) return;
+            const notes = ["C5", "E5", "G5"];
+            chimeSynth.triggerAttackRelease(notes[step - 1] || "C5", "8n");
+        }
+
+        // Gentle, expressive piano arrangement with warm left-hand arpeggios
+        function startBirthdayMelody() {
+            if (!audioReady || !pianoSynth) return;
+            stopBirthdayMelody();
+
+            const toggleBtn = document.getElementById('musicToggleBtn');
+            if (toggleBtn) {
+                toggleBtn.classList.remove('hidden');
+                toggleBtn.classList.add('flex');
+            }
+
+            // [notesArray, durationSec, timeOffsetSec, velocity]
+            const pianoScore = [
+                // Pickup: Happy
+                [["C5"], 0.38, 0.0, 0.65],
+                [["C5"], 0.30, 0.42, 0.6],
+
+                // Measure 1: Birth-day to you (F major warmth)
+                [["D5", "F3", "C4"], 0.85, 0.78, 0.78],
+                [["A4"], 0.45, 1.22, 0.45],
+                [["C5", "C4"], 0.85, 1.65, 0.75],
+                [["A4"], 0.45, 2.08, 0.45],
+                [["F5", "F3", "C4"], 0.85, 2.52, 0.82],
+                [["A4"], 0.45, 2.95, 0.45],
+                [["E5", "C3", "G3", "C4"], 1.45, 3.38, 0.75],
+                [["G4"], 0.55, 3.92, 0.42],
+                [["E4"], 0.55, 4.38, 0.4],
+
+                // Pickup: Happy
+                [["C5"], 0.38, 4.88, 0.65],
+                [["C5"], 0.30, 5.30, 0.6],
+
+                // Measure 2: Birth-day to you (C7 -> F warmth)
+                [["D5", "C3", "G3", "Bb3"], 0.85, 5.66, 0.78],
+                [["E4"], 0.45, 6.10, 0.45],
+                [["C5", "C4"], 0.85, 6.53, 0.75],
+                [["G4"], 0.45, 6.96, 0.45],
+                [["G5", "C3", "G3", "Bb3"], 0.85, 7.40, 0.84],
+                [["E4"], 0.45, 7.83, 0.45],
+                [["F5", "F3", "C4", "A4"], 1.5, 8.26, 0.8],
+                [["C4"], 0.55, 8.80, 0.42],
+                [["A3"], 0.55, 9.26, 0.4],
+
+                // Pickup: Happy
+                [["C5"], 0.38, 9.76, 0.68],
+                [["C5"], 0.30, 10.18, 0.62],
+
+                // Measure 3: Birth-day dear Pema (Expressive high octave + Bb warmth)
+                [["C6", "F3", "C4", "A4"], 0.9, 10.54, 0.88],
+                [["F4"], 0.45, 10.98, 0.45],
+                [["A5", "C4"], 0.85, 11.41, 0.8],
+                [["F4"], 0.45, 11.84, 0.45],
+                [["F5", "Bb2", "F3", "D4"], 0.85, 12.28, 0.78],
+                [["Bb3"], 0.45, 12.71, 0.45],
+                [["E5", "G3", "D4"], 0.85, 13.15, 0.76],
+                [["D5", "Bb2", "F3", "Bb3"], 1.45, 14.02, 0.78],
+                [["F4"], 0.55, 14.56, 0.42],
+
+                // Pickup: Happy
+                [["Bb5"], 0.38, 15.16, 0.72],
+                [["Bb5"], 0.30, 15.58, 0.66],
+
+                // Measure 4: Birth-day to you (Tender resolution)
+                [["A5", "F3", "C4", "F4"], 0.9, 15.94, 0.82],
+                [["C4"], 0.45, 16.38, 0.45],
+                [["F5", "A3", "C4"], 0.85, 16.81, 0.76],
+                [["G5", "C3", "G3", "Bb3"], 0.9, 17.68, 0.8],
+                [["E4"], 0.45, 18.12, 0.45],
+                [["F5", "F2", "C3", "A3", "C4"], 2.2, 18.56, 0.82]
+            ];
+
+            const totalLoopDuration = 21.6;
+
+            function scheduleSong() {
+                if (!isCompleted) return;
+                const startTime = Tone.now() + 0.08;
+
+                pianoScore.forEach(([notes, dur, offset, vel]) => {
+                    pianoSynth.triggerAttackRelease(notes, dur, startTime + offset, vel);
+                });
+
+                birthdayLoopTimer = setTimeout(scheduleSong, totalLoopDuration * 1000);
+            }
+
+            scheduleSong();
+        }
+
+        function stopBirthdayMelody() {
+            if (birthdayLoopTimer) {
+                clearTimeout(birthdayLoopTimer);
+                birthdayLoopTimer = null;
+            }
+            if (pianoSynth) {
+                try {
+                    pianoSynth.releaseAll();
+                } catch (e) {}
+            }
+        }
+
+        function toggleBackgroundMusic() {
+            if (!pianoSynth) return;
+            isMusicMuted = !isMusicMuted;
+            const icon = document.getElementById('musicToggleIcon');
+            if (isMusicMuted) {
+                pianoSynth.volume.value = -100;
+                if (icon) icon.textContent = "🔇";
+            } else {
+                pianoSynth.volume.value = -10;
+                if (icon) icon.textContent = "🎶";
+            }
+        }
+
+        // ------------------------------------------
+        // 3. INTERACTIVE 1 - 2 - 3 CANDLE BLOW LOGIC
+        // ------------------------------------------
+        let tapCount = 0;
+        let isCompleted = false;
+        let lastTapTime = 0;
+
+        const heroSection = document.getElementById('heroSection');
+        const countdownNumber = document.getElementById('countdownNumber');
+        const blowBtnText = document.getElementById('blowBtnText');
+        const instructionText = document.getElementById('instructionText');
+        const tapDot = document.getElementById('tapDot');
+        const warmAura = document.getElementById('warmAura');
+
+        async function handleCandleTap(e) {
+            if (e.target.closest('#scrollHint')) return;
+
+            const now = Date.now();
+            if (now - lastTapTime < 260) return;
+            lastTapTime = now;
+
+            await initAudio();
+
+            // Replay if already completed
+            if (isCompleted) {
+                resetCandles();
+                return;
+            }
+
+            tapCount++;
+            
+            // Play both the realistic breath-blow sound and gentle chime
+            playBlowAirSound(0.9 + tapCount * 0.1);
+            playCountNote(tapCount);
+
+            // Show animated 1, 2, 3 number
+            countdownNumber.textContent = tapCount;
+            countdownNumber.classList.remove('animate-count');
+            void countdownNumber.offsetWidth;
+            countdownNumber.classList.add('animate-count');
+
+            // Extinguish candle flame + trigger rising smoke wisp
+            const flame = document.getElementById(`flame${tapCount}`);
+            const smoke = document.getElementById(`smoke${tapCount}`);
+            if (flame) flame.classList.add('blown-out');
+            if (smoke) {
+                smoke.classList.remove('active');
+                void smoke.offsetWidth;
+                smoke.classList.add('active');
+            }
+
+            // Dim candle glow progressively
+            if (warmAura) {
+                warmAura.style.opacity = Math.max(0, 1 - tapCount * 0.34);
+            }
+
+            if (tapCount < 3) {
+                blowBtnText.textContent = `Keep blowing... (${tapCount}/3)`;
+                instructionText.textContent = tapCount === 1 ? "One down! Two more to go..." : "Almost there! One big blow left!";
+            } else {
+                isCompleted = true;
+                blowBtnText.textContent = "Candles blown! (Tap to relight)";
+                instructionText.textContent = "Make a wish, Pema! 🌟";
+                tapDot.classList.remove('animate-ping', 'bg-rose-400');
+                tapDot.classList.add('bg-amber-400');
+
+                setTimeout(() => {
+                    startBirthdayMelody();
+                    startStarShower();
+                    openBirthdayModal();
+                }, 420);
+            }
+        }
+
+        function resetCandles() {
+            tapCount = 0;
+            isCompleted = false;
+            stopBirthdayMelody();
+            const toggleBtn = document.getElementById('musicToggleBtn');
+            if (toggleBtn) {
+                toggleBtn.classList.add('hidden');
+                toggleBtn.classList.remove('flex');
+            }
+            blowBtnText.textContent = "Tap anywhere to blow (0/3)";
+            instructionText.textContent = "Tap the screen 3 times to blow out your candles 🌬️";
+            tapDot.classList.add('animate-ping', 'bg-rose-400');
+            tapDot.classList.remove('bg-amber-400');
+            if (warmAura) warmAura.style.opacity = "1";
+
+            for (let i = 1; i <= 3; i++) {
+                const flame = document.getElementById(`flame${i}`);
+                const smoke = document.getElementById(`smoke${i}`);
+                if (flame) flame.classList.remove('blown-out');
+                if (smoke) smoke.classList.remove('active');
+            }
+        }
+
+        heroSection.addEventListener('click', handleCandleTap);
+
+        // ------------------------------------------
+        // 4. FALLING STARS PARTICLE ANIMATION
+        // ------------------------------------------
+        const canvas = document.getElementById('starCanvas');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+        let animationFrameId = null;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function createStar(yOffset = -20) {
+            const colors = ['#F6BD60', '#FFD166', '#FF8FA3', '#E5989B', '#C77DFF', '#FFF3B0'];
+            return {
+                x: Math.random() * canvas.width,
+                y: yOffset - Math.random() * 140,
+                size: Math.random() * 9 + 5,
+                speedY: Math.random() * 2.5 + 1.4,
+                speedX: (Math.random() - 0.5) * 1.1,
+                rotation: Math.random() * Math.PI * 2,
+                rotationSpeed: (Math.random() - 0.5) * 0.06,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                alpha: Math.random() * 0.4 + 0.6
+            };
+        }
+
+        function drawStarShape(cx, cy, spikes, outerRadius, innerRadius, rotation, color, alpha) {
+            let rot = (Math.PI / 2) * 3 + rotation;
+            let x = cx;
+            let y = cy;
+            const step = Math.PI / spikes;
+
+            ctx.save();
+            ctx.globalAlpha = alpha;
+            ctx.beginPath();
+            ctx.moveTo(cx, cy - outerRadius);
+            for (let i = 0; i < spikes; i++) {
+                x = cx + Math.cos(rot) * outerRadius;
+                y = cy + Math.sin(rot) * outerRadius;
+                ctx.lineTo(x, y);
+                rot += step;
+
+                x = cx + Math.cos(rot) * innerRadius;
+                y = cy + Math.sin(rot) * innerRadius;
+                ctx.lineTo(x, y);
+                rot += step;
+            }
+            ctx.lineTo(cx, cy - outerRadius);
+            ctx.closePath();
+            ctx.fillStyle = color;
+            ctx.shadowColor = color;
+            ctx.shadowBlur = 10;
+            ctx.fill();
+            ctx.restore();
+        }
+
+        function startStarShower() {
+            stars = [];
+            for (let i = 0; i < 65; i++) {
+                stars.push(createStar(-10 - i * 11));
+            }
+            if (!animationFrameId) {
+                animateStars();
+            }
+        }
+
+        function animateStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = stars.length - 1; i >= 0; i--) {
+                const s = stars[i];
+                s.y += s.speedY;
+                s.x += s.speedX;
+                s.rotation += s.rotationSpeed;
+
+                drawStarShape(s.x, s.y, 5, s.size, s.size * 0.45, s.rotation, s.color, s.alpha);
+
+                if (s.y > canvas.height + 30) {
+                    stars.splice(i, 1);
+                }
+            }
+
+            if (stars.length > 0) {
+                animationFrameId = requestAnimationFrame(animateStars);
+            } else {
+                animationFrameId = null;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+        }
+
+        // ------------------------------------------
+        // 5. POPUP MODAL CONTROLS
+        // ------------------------------------------
+        const birthdayModal = document.getElementById('birthdayModal');
+        const modalContent = document.getElementById('modalContent');
+
+        function openBirthdayModal() {
+            birthdayModal.classList.remove('hidden');
+            birthdayModal.classList.add('flex');
+            setTimeout(() => {
+                modalContent.classList.remove('scale-90', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 25);
+        }
+
+        function closeModalAndScroll() {
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-90', 'opacity-0');
+            setTimeout(() => {
+                birthdayModal.classList.add('hidden');
+                birthdayModal.classList.remove('flex');
+                document.getElementById('chaptersSection').scrollIntoView({ behavior: 'smooth' });
+            }, 260);
+        }
+
+        birthdayModal.addEventListener('click', (e) => {
+            if (e.target === birthdayModal) {
+                closeModalAndScroll();
+            }
+        });
+
+        // ------------------------------------------
+        // 6. OPTION TILES, DYNAMIC BACKGROUNDS & IN-PLACE EDITING
+        // ------------------------------------------
+        // 6. OPTION TILES & DYNAMIC BACKGROUNDS
+        // ------------------------------------------
+        const stories = {
+            lab: {
+                icon: "🧪",
+                title: "Lab Partner Chronicles",
+                subtitle: "Since 1st Year",
+                borderClass: "border-sage",
+                bgClass: "bg-theme-lab",
+                watermark: `<svg viewBox="0 0 100 100" fill="none" class="w-full h-full text-emerald-700"><path d="M35 15H65M42 15V38L20 78C18 82 21 86 26 86H74C79 86 82 82 80 78L58 38V15" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="46" cy="68" r="4" fill="currentColor"/><circle cx="58" cy="74" r="3" fill="currentColor"/><circle cx="52" cy="56" r="2.5" fill="currentColor"/></svg>`,
+                text: "Hi Pema! Honestly, it's been a wonderful experience having you as our unofficial lab partner since 1st year — handling all the writing, data, dates, and calculation corrections, basically our data analyst and quality control department all rolled into one. 😂 And let's not forget those mini-mini scoldings you give our group members whenever something goes wrong. 🤣\nHappy Birthday!"
+            },
+            hobby: {
+                icon: "📖",
+                title: "Books, Music & Dramas",
+                subtitle: "Your Little World",
+                borderClass: "border-roseDust",
+                bgClass: "bg-theme-hobby",
+                watermark: `<svg viewBox="0 0 100 100" fill="none" class="w-full h-full text-rose-500"><path d="M50 30C42 23 26 23 16 27V74C26 70 42 70 50 77C58 70 74 70 84 74V27C74 23 58 23 50 30Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><path d="M50 30V77" stroke="currentColor" stroke-width="3"/><path d="M72 22V10L86 7V19" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><circle cx="68" cy="22" r="4" fill="currentColor"/><circle cx="82" cy="19" r="4" fill="currentColor"/></svg>`,
+                text: "Hi! I've quietly observed some of your hobbies — reading books, singing and listening to music, and watching dramas/Anime (especially Asian dramas!).\n\nSometimes, I even catch you singing songs in that soft, low voice of yours in class while Trilo and I are sitting just one bench above you. And most of the time, during free periods, you always seem to be lost in your own little book world!"
+            },
+            misc: {
+                icon: "👵",
+                title: "A Little Extra Note",
+                subtitle: "Happy Birthday Pema!",
+                borderClass: "border-goldGlow",
+                bgClass: "bg-theme-misc",
+                watermark: `<svg viewBox="0 0 100 100" fill="none" class="w-full h-full text-amber-500"><path d="M50 15L58 38L82 38L63 52L70 75L50 61L30 75L37 52L18 38L42 38L50 15Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/></svg>`,
+                text: "I hope you at least managed to read the first two slides! ✨ Hope you enjoyed them 👻!\n\nThanks for helping me out since 1st year by providing notes. You also have a special talent for taking notes, even during the most boring Structural classes, and doing it with such discipline!\n\nAnd one of the most inspiring things I've noticed is how you always try to contribute and even volunteer to give the Geotech presentation, while saying that you haven't contributed anything. Also, I hope everyone gets teammates like you in group assignments! 🙌\n\nWishing you a very Happy Birthday, Pema! Hope you enjoy your day and have fun turning one year older. The countdown to becoming a grandma has officially begun!"
+            }
+        };
+
+        let currentTileKey = 'lab';
+
+        function selectTile(key) {
+            currentTileKey = key;
+            const data = stories[key];
+
+            // Update active border & elevation styling on the 3 option tiles
+            ['lab', 'hobby', 'misc'].forEach(k => {
+                const btn = document.getElementById(`tile-${k}`);
+                btn.classList.remove('border-2', 'border-sage', 'border-roseDust', 'border-goldGlow', 'shadow-md', 'bg-white', '-translate-y-0.5');
+                btn.classList.add('border', 'border-rose-100', 'shadow-sm', 'bg-white/75');
+            });
+
+            const activeBtn = document.getElementById(`tile-${key}`);
+            activeBtn.classList.remove('border', 'border-rose-100', 'shadow-sm', 'bg-white/75');
+            activeBtn.classList.add('border-2', data.borderClass, 'shadow-md', 'bg-white', '-translate-y-0.5');
+
+            // Update Story Card Background Theme & Corner Watermark
+            const storyCard = document.getElementById('storyCard');
+            storyCard.classList.remove('bg-theme-lab', 'bg-theme-hobby', 'bg-theme-misc');
+            storyCard.classList.add(data.bgClass);
+
+            document.getElementById('cardWatermark').innerHTML = data.watermark || '';
+
+            // Populate Card Content with subtle fade transition
+            const readView = document.getElementById('readView');
+            readView.style.opacity = '0.25';
+
+            setTimeout(() => {
+                document.getElementById('cardIcon').textContent = data.icon;
+                document.getElementById('cardTitle').textContent = data.title;
+                document.getElementById('cardSubtitle').textContent = data.subtitle;
+                document.getElementById('cardBody').textContent = data.text;
+                readView.style.opacity = '1';
+            }, 130);
+        }
+
+        // Initialize default tile on page load
+        window.onload = function() {
+            selectTile('lab');
+        };
+    </script>
+</body>
+</html>
